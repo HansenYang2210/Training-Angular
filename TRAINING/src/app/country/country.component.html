@@ -1,0 +1,81 @@
+<div class="search">
+  <app-user-input (search)="onSubmit($event)" (reset)="onReset()"></app-user-input>
+</div>
+
+<br>
+<div class="card" style="display: flex; justify-content: center; align-items: center;">
+  <div class="tableData">
+
+    <p *ngIf="error()">{{ error() }}</p>
+
+    <p *ngIf="isFetching() && !error()">Loading data, please wait...</p>
+
+    <!-- <p *ngIf="!isFetching() && !error() && countries()?.length===0">No data available</p> -->
+
+    <table *ngIf="!isFetching() && !error() && countries()?.length===0">
+      <colgroup>
+        <col width="25%">
+        <col width="15%">
+        <col width="25%">
+        <col width="10%">
+        <col width="15%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Version Number</th>
+          <th>Calling Code</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5">No Data Available</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table *ngIf="!isFetching() && !error()  && countries()?.length!==0">
+      <colgroup>
+        <col width="25%">
+        <col width="15%">
+        <col width="25%">
+        <col width="10%">
+        <col width="15%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Country ID</th>
+          <th>Country Name</th>
+          <th>Version Number</th>
+          <th>Calling Code</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countries()">
+          <td>{{ country.Id }}</td>
+          <td>{{ country.Name }}</td>
+          <td>{{ country.VersionNumber }}</td>
+          <td>{{ country.CallingCode }}</td>
+          <td>
+            <a [routerLink]="['/country/',country.Id]" routerLinkActive="selected">
+              <button>UPDATE</button>
+            </a>
+            <button style="margin-left: 5%;" (click)="onRemovecountry(country)">DELETE</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!isFetching() && !error()" class="pagination-controls">
+      <button (click)="previousPage()" [disabled]="pageNumber() === 1 || pageNumber() === 0"><< </button>
+
+          <input id="pageSize" type="number" [(ngModel)]="pageSize" (change)="onPageSizeChange()" min="1">
+          <button (click)="nextPage()" [disabled]="!next()">>></button>
+    </div>
+  </div>
+</div>
+
+<app-error-dialog />

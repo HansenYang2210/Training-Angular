@@ -1,0 +1,79 @@
+table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c9302c;
+}
+
+
+.card{
+  width: 100%;
+   display: block;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #d9e2f1;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+}
+
+.search{
+    display: block;
+    padding: 1rem;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    background-color: #FADFA1;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.tableData{
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #DEE5D4;
+  border-radius: 6px;
+  background-color: #FEF9D9;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.pagination-controls {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.pagination-controls label {
+  margin-left: 10px;
+}
+
+.pagination-controls input {
+  width: 3%;
+  text-align: center;
+}

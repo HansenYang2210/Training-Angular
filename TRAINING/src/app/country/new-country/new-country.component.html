@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Add New Country</h2>
+  <div>
+      <fieldset formGroupName="country">
+        <legend>New Country</legend>
+  
+        <div class="control-row">
+          <div class="control">
+            <label for="name">Country Name</label>
+            <input type="text" id="name" name="name" formControlName="name" />
+          </div>
+        </div>
+  
+        <div class="control-row">
+          <div class="control">
+            <label for="calling-code">Calling Code</label>
+            <input type="text" id="calling-code" name="calling-code" formControlName="callingCode" />
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  
+  
+    <p class="form-actions">
+      <button type="button" class="button" (click) = "onBack()">Back</button>
+      <button type="submit" class="button">Add</button>
+    </p>
+  
+    @if (form.invalid && form.touched)  {
+  
+      <p class="control-error">
+        Country Name & Calling Code is Required (No Number Allowed)!
+      </p>
+    }
+
+    <app-success-dialog/>
+<app-error-dialog/>
+
+  </form>
+  

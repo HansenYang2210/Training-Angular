@@ -1,0 +1,12 @@
+<div class="modal" *ngIf="isVisible">
+  <div class="modal-content">
+    <div class="header">
+      <h3>{{title}}</h3>
+    </div>
+      
+    <p>{{ message }}</p>
+    <p class="form-actions">
+      <button type="button" class="button" (click) = "onClose()">Close</button>
+    </p>
+  </div>
+</div>

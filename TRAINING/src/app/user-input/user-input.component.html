@@ -1,0 +1,26 @@
+<div>
+  <input class="placeID" [(ngModel)]="searchId" placeholder="Enter Country ID" />
+
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" (click)="toggleDropdown()">
+      Select Fields 
+    </button>
+
+    <div class="dropdown-menu" *ngIf="dropdownOpen">
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedFields.name" /> Country Name
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedFields.versionnumber" /> Version Number
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedFields.callingcode" /> Calling Code
+      </label>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="onSearch()">Search</button>
+    <button (click)="onReset()">Reset</button>
+  </div>
+</div>
